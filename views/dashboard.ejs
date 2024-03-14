@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your file css -->
+    <link rel="stylesheet" type="text/css" href="/dashboard.css">
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src =" https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="/views/login.ejs"><img src="/imgs/logo4.png" alt="MindGarden"
+                style="height: fit-content; width: fit-content;"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <% if (loggedin) { %>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">
+                            <i class="fas fa-clipboard-list"></i> Schedule
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/terms">
+                        <i class="fas fa-check-square"></i></i> Ts & Cs
+                    </a>
+                </li>
+            </ul>
+            <% if (loggedin) { %>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/new">
+                            <i class="fas fa-plus-circle"></i> Add
+                        </a>
+                    </li>
+                </ul>
+                <% } %>
+                    <% if (loggedin) { %>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/overview">
+                                    <i class="fas fa-eye"></i> Overview
+                                </a>
+                            </li>
+                        </ul>
+
+                    
+                                <% if (loggedin) { %>
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/dashboard">
+                                                <i class="fas fa-chart-line"></i> Dashboard
+                                            </a>
+                                        </li>
+                                        <% } %>
+                                    </ul>
+                        <% } %>
+                            <% if (!loggedin) { %>
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login">
+                                            <i class="fas fa-sign-in-alt"></i> Login
+                                        </a>
+                                    </li>
+                                </ul>
+                                <% } else { %>
+                                    <ul class="navbar-nav ms-auto">
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="/logout">
+                                                <i class="fas fa-sign-out-alt"></i>Logout
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <% } %>
+        </div>
+    </nav>
+
+    <h1>Dashboard</h1>
+    <div class="container" id="container">
+        <section class="home">
+                <div class="col-md-12">
+                        <h4>Welcome to your mind Garden Dashboard. </h4>
+                        <p> On this page you will see a range of
+                            trends based on the data you have provided.
+                            It is our goal to provide you with the tools
+                            and insight you need to recognise what may 
+                            be causing you to feel the way you do and 
+                            think about how you can combat this .</p>
+                        <br>
+                        </div>
+               
+                      </section>
+    <div class="chartContainer">
+        <canvas id="emotionChart" width="800" height="600"></canvas>
+    </div>
+
+    <div class="chartContainer">
+        <canvas id="triggerChart" width="800" height="600"></canvas>
+    </div>
+
+    <div class="chartContainer">
+        <canvas id="emotionsOverTimeChart" width="800" height="600"></canvas>
+    </div>
+
+    <script>
+
+        const updatedEmotionData = {
+            labels: ['enjoyment', 'sadness', 'anger', 'fear', 'disgust', 'surprise', 'contempt'],
+            data: ['19', '27', '25', '29', '23', '18', '22']
+        };
+
+        const updatedTriggerData = {
+            labels: ['Current Environment', 'Diet', 'Family', 'Finances', 'Friends', 'no trigger', 'Unknown'],
+            data: [1, 2, 3, 1, 1, 1, 1]
+        };
+
+        // Update arrays with new data
+        const emotions = updatedEmotionData.labels;
+        const emotionCounts = updatedEmotionData.data;
+        const triggerTypes = updatedTriggerData.labels;
+        const triggerCounts = updatedTriggerData.data;
+
+        // Initialize charts with updated data
+        var emotionChart = new Chart('emotionChart', {
+            type: 'bar',
+            data: {
+                labels: emotions,
+                datasets: [{
+                    label: 'Emotion Trends',
+                    data: emotionCounts,
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(255, 206, 86, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(240, 59, 132, 0.6)',
+                        'rgba(95, 192, 142, 0.6)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        ticks: {
+                            color: 'black',
+                            FontFace: 'Arial',
+                            fontSize: 18,
+                        beginAtZero: true,
+                        x: {
+                            ticks: {
+                                color: 'black',
+                                FontFace: 'Arial',
+                                fontSize: 18
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        });
+
+        
+        var triggerChart = new Chart('triggerChart', {
+            type: 'bar',
+            data: {
+                labels: triggerTypes,
+                datasets: [{
+                    label: 'Most Popular Triggers',
+                    data: triggerCounts,
+                    backgroundColor: [
+                        'rgba(255, 159, 64, 0.6)',
+                        'rgba(75, 192, 192, 0.6)',
+                        'rgba(255, 99, 132, 0.6)',
+                        'rgba(54, 162, 235, 0.6)',
+                        'rgba(153, 102, 255, 0.6)',
+                        'rgba(240, 59, 132, 0.6)',
+                        'rgba(95, 192, 142, 0.6)',
+                    ],
+                    borderColor: [
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(153, 102, 255, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+  
+        // Define static data for emotions over time
+        const emotionsData = {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'], // Example time periods
+            datasets: [
+                {
+                    label: 'Enjoyment',
+                    data: [20, 25, 22, 28, 30, 35], // Example enjoyment data over time
+                    borderColor: 'rgba(255, 99, 132, 1)', // Red color
+                    fill: false
+                },
+                {
+                    label: 'Sadness',
+                    data: [15, 18, 16, 20, 22, 25], // Example sadness data over time
+                    borderColor: 'rgba(54, 162, 235, 1)', // Blue color
+                    fill: false
+                },
+                // Add more datasets for other emotions following the same format
+            ]
+        };
+
+        // Initialize chart for emotions over time
+        var emotionsOverTimeChart = new Chart('emotionsOverTimeChart', {
+            type: 'line',
+            data: emotionsData,
+            options: {
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time Period' // Label for x-axis
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Intensity' // Label for y-axis
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+
+    <footer class="footer">
+        &copy; 2024 MindGarden. All rights reserved.
+    </footer>
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your file css -->
+    <link rel="stylesheet" type="text/css" href="/landingpage.css">
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+
+        <a class="navbar-brand" href="/views/login.ejs"><img src="/imgs/logo4.png" alt="MindGarden"
+                style="height: fit-content; width: fit-content;"></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">
+                        <i class="fas fa-clipboard-list"></i> Schedule</a>
+                </li>
+            </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/terms">
+                            <i class="fas fa-check-square"></i></i> Ts & Cs</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/overview">
+                            <i class="fas fa-eye"></i></i> Overview</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/new">
+                            <i class="fas fa-plus-circle"></i> Add</a>
+                    </li>
+                </ul>
+
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">
+                            <i class="fas fa-sign-out-alt"></i>Logout</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+      <% var snapshotid; %>
+      <% for (let row of details ){%>
+      <% var snapshotid=row.snapshot_ID; %>
+      <% var userid=row.user_ID; %>
+      <% var snapshotdate=row.snapshot_date; %>
+      <% var enjoyment=row.enjoyment; %>
+      <% var surprise=row.surprise; %>
+      <% var contempt=row.contempt; %>
+      <% var sadness=row.sadness; %>        
+      <% var fear=row.fear; %>
+      <% var disgust=row.disgust; %>
+      <% var anger=row.anger; %>
+      <% var trigger=row.trigger_ID; %>
+
+   <% var inputdate=new Date(snapshotdate);%>
+   <% const year=inputdate.getFullYear();%>
+   <% const month=(inputdate.getMonth() +1).toString().padStart(2, '0' );%>
+   <% const day=inputdate.getDate().toString().padStart(2, '0' );%>
+   <% var formattedDate=`${year}-${month}-${day}`;%> <% } %>
+
+
+
+    <div class="container" id="container4">
+    <div class="row">
+    <div class="col-md-12">
+        <% const now = new Date(); %>
+        <% const hour = now.getHours(); %>
+        <% let greeting = ''; %>
+        
+        <% if (hour >= 5 && hour < 12) { %>
+          <% greeting = 'Good morning'; %>
+        <% } else if (hour >= 12 && hour < 18) { %>
+          <% greeting = 'Good afternoon'; %>
+        <% } else { %>
+          <% greeting = 'Good evening'; %>
+        <% } %>
+        
+        <h1><%= greeting %></h1>
+        <h1>Update Snapshot</h1>
+        <p class="special">You can only update the trigger of a previously recorded snapshot</p>
+        
+        <form method="post" action="/edit/<%= snapshotid %>" class="centered-form">
+          <div>
+            <label class="date-input">Date of Entry:</label>
+            <input type="date" id="date-input" name="date" value="<%= formattedDate %>" disabled>
+          </div>
+
+          <p class="special">ENJOYMENT</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= enjoyment %>" class="form-control" name="enjoyment" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">SURPRISE</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= surprise %>" class="form-control" name="surprise" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">CONTEMPT</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= contempt %>" class="form-control" name="contempt" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">SADNESS</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= sadness %>" class="form-control" name="sadness" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">FEAR</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= fear %>" class="form-control" name="fear" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">DISGUST</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= disgust %>" class="form-control" name="disgust" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">ANGER</p>
+          <div class="input-group number-input">
+            <input type="number" min="0" max="10" value="<%= anger %>" class="form-control" name="anger" disabled>
+            <div class="input-group-append"></div>
+          </div>
+          
+          <p class="special">
+            <label for="trigger-input">Which of the following triggers do you think contributed to this?</label>
+          </p>
+          
+          <div id="dropdown">
+            <select name="trigger_ID" id="trigger-input" value="<%= trigger %>">
+              <option value="Family">Family</option>
+              <option value="Friends">Friends</option>
+              <option value="Relationship">Relationship</option>
+              <option value="Health">Health</option>
+              <option value="Finances">Finances</option>
+              <option value="Work">Work</option>
+                <option value="Current Environment">Current Environment</option>
+                <option value="Diet">Diet</option>
+                <option value="A Recent Event">A Recent Event</option>
+                <option value="Unknown">Unknown</option>
+                <option value="No Trigger">no trigger</option>
+            </select>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+              
+              <br>
+              
+              <% if (userrole === 'Admin') { %>
+              <div class="form-group">
+                <button class="btn btn-danger btn-lg" formaction="/del/<%= snapshotid %>">Delete</button>
+              </div>
+              <% } %>
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+
+ 
+            <footer class="footer">
+                &copy; 2024 MindGarden. All rights reserved.
+            </footer>
+            <!-- Bootstrap JS and dependencies -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+                                                                                                                                 

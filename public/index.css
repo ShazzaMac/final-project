@@ -1,0 +1,454 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Baskerville&display=swap');
+/* Adjust the appearance of the input group */
+.navbar-custom {
+    /* CSS rules for container 1 (header) */
+    background-color: #384b67; /* Blue background color */
+    color: white; /* Text color */
+    padding: 10px; /* Padding */
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  .navbar-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: auto;
+  }
+  
+  .navbar-nav .nav-item {
+    text-align: center;
+  }
+  
+  
+  .navbar-brand img {
+    max-height: 40px; /* Adjust logo height */
+  }
+  
+  .nav-link {
+    border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
+    color: white !important; /* Text color for links */
+  }
+  
+  .navbar-toggler-icon {
+    border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
+    border-color: white; /* Color for the toggler icon */
+  }
+  
+  .navbar-toggler {
+    background-color: #47a09d; /* Background color for active and hover links */
+    border-color: white; /* Color for the toggler button */
+  
+  }
+  
+   .navbar {
+    padding-top: 10px !important; /* Adjust top padding - !important added for higher priority */
+    padding-bottom: 10px !important; /* Adjust bottom padding */
+  }
+  
+  .navbar-brand {
+    margin-right: 20px !important; /* Adjust right margin */
+  }
+  
+   .navbar-nav .nav-link {
+    font-family: 'poppins', sans-serif;
+    padding-top: 10px !important; /* Adjust top padding */
+    padding-bottom: 10px !important; /* Adjust bottom padding */
+    margin-right: 10px !important; /* Adjust right margin */
+    margin-left: 10px !important; /* Adjust left margin */
+    
+  }
+  
+   .navbar-nav .nav-link.active,
+   .navbar-nav .nav-link:hover {
+    border-radius: 20px; /* Adjust the border-radius value to control the roundness of the corners */
+    background-color: #47a09d; /* Background color for active and hover links */
+    color: white; /* Text color for active and hover links */
+    padding: 20px 20px;
+    text-align: center;
+  }
+  
+  /*below is all the styles for my typefaces*/
+  h1,
+  h2 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    text-align: center;
+    color:rgb(18, 46, 86);
+  }
+  
+  h3,
+  h4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    text-align: center;
+    margin: 100;
+    padding: 50;
+    color: rgb(18, 46, 86);
+  }
+  
+  h5 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    text-align: center;
+    color: white;
+  }
+  
+  p {
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size:20px;
+    text-align: center;
+    margin: 100;
+    padding: 5px;
+    color: rgb(18, 46, 86);
+  }
+  .special{
+    font-family:Helvetica;
+    font-weight: 600;
+    text-align: center;
+    margin: 80;
+    padding: 20;
+    color: #384b67;
+  }
+  
+  .date-input{
+    font-family:Helvetica;
+    font-weight: 600;
+     color: #384b67;
+  }
+  
+  body {
+    background-image: url('imgs/background.jpeg'); /* Add background image */
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes up the full height of the viewport */
+  }
+  
+
+.container {
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+
+section {
+  position: relative;
+  max-width: 900px;
+  background-color: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(35px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  flex-direction: column;
+}
+  
+.container {
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+  
+  #container2 {
+    /* CSS rules for container 2 (ul) */
+    background-color: rgba(235, 245, 241, 0.5); /* Background color */
+    border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
+    display: flex;
+    gap: 20px;
+    height: auto; /* Adjusted to auto */
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    max-width: 1200px; /* Adjust the maximum width as needed */
+    margin: auto; /* Center the container horizontally */
+    margin-bottom: 20px; /* Add space between container 2 and 3 */
+    padding: 20px; /* Added padding */
+  }
+  
+  #container2 > p {
+    flex-basis: 300px;
+    height: auto;
+  }
+  
+  
+  #container3 {
+    display: flex; /* Use flexbox for container 1 and 3 */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: #1a4572; /* Container 1 background color */
+    color: white;
+    padding: 20px;
+  }
+  
+  #container4 {
+    display: flex; 
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    background-color: rgba(235, 245, 241, 0.5); /* Background color */
+    border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
+    gap: 10px;
+    height: auto; /* Adjusted to auto */
+    margin-top: 15px;
+    margin-bottom: 20px; 
+    padding: 20px;
+  }
+
+
+  .container-snapshot {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px; /* Add padding to the container */
+    margin-bottom: 10px; /* Add space between the container and the next element */
+
+
+  }
+
+  .box {
+  display: flex;
+  flex-wrap: wrap; /* Allow wrapping to next line */
+  justify-content: space-around; /* Distribute space between items */
+  margin-right: 20px; /* Adjust spacing between boxes as needed */
+  margin-top: 20px; /* Add space between the container and the previous element */
+  margin-bottom: 60px; /* Add space between the container and the next element */
+  backdrop-filter: blur(35px);
+  background-color: rgba(89, 64, 112, 0.2);
+}
+
+
+.card {
+  display: flex;
+  width: 600px; /* Adjust width as needed */
+  height: 200px; /* Adjust height as needed */
+  justify-content: left; /* Center content within the card */
+  align-items: left; /* Center content vertically */
+  background-color: rgb(138, 218, 218);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 255, 0.5); /* Blue-toned drop shadow */
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  
+}
+
+.card2 {
+  display: flex;
+  width: 600px; /* Adjust width as needed */
+  height: 600px; /* Adjust height as needed */
+  justify-content:space-between; /* Center content within the card */
+  align-items: left; /* Center content vertically */
+  background-color: rgb(138, 218, 218);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 255, 0.5); /* Blue-toned drop shadow */
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  margin-right: 20px;
+  
+}
+
+.date {
+  font-family: 'helvetica', sans-serif; /* Specify the font family */
+  font-size: 32px; /* Font size for the date */
+  font-weight: bold; /* Bold font weight for the date */
+  color: #103452; /* Text color for the date */
+  text-decoration: none;
+}
+
+.date:hover {
+  color: #0e6368; /* Change color on hover */
+}
+
+.snapshot {
+  font-family: 'helvetica', sans-serif; /* Specify the font family */
+  font-size: 24px; /* Font size for the snapshot ID */
+  color: #1c526d; /* Text color for the snapshot ID */
+}
+
+
+  /* Style for the date input field */
+  #date-input {
+    padding: 10px; /* Adjust padding */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 2px solid #47a09d; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    width: 450px; /* Adjust width as needed */
+    text-align: center;
+  }
+  
+  /* Adjust the appearance of the dropdown arrow */
+  /* The appearance of the dropdown arrow varies across browsers */
+  #date-input::-webkit-calendar-picker-indicator {
+    filter: invert(50%); /* Invert the color of the calendar icon */
+    cursor: pointer; /* Change cursor to pointer */
+  }
+  
+  #date-input::-webkit-inner-spin-button {
+    display: none; /* Hide the spin button */
+  }
+  
+    .input-group.number-input input.form-control {
+      background-color: #e4f3f4; /* Set the background color */
+      border-radius: 5px; 
+  }
+  
+  
+  .number-input {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex;
+  }
+  
+   .number-input input {
+    width: 50px; /* Adjust width as needed */
+    text-align: center;
+    border: 2px solid #47a09d; /* Add border */
+    border-radius: 10px; /* Add border radius for rounded corners */
+  }
+  
+  /* to style inside the input boxes */
+  .input-group.number-input input {
+    font-family: Arial, sans-serif; /* Specify the font family */
+    font-size: 16px; /* Specify the font size */
+    font-weight: bold; /* Specify the font weight */
+   }
+  
+  
+  .btn-up,
+  .btn-down {
+    background-color: #b0bec3;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 5px 10px;
+  }
+  
+  .btn-up:hover,
+  .btn-down:hover {
+    background-color: #0d668a;
+  }
+  
+  .centered-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .green-button {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .link-nav {
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: medium;
+    
+    color: white;
+    text-decoration: none;
+  }
+  
+  #dropdown {
+    margin-bottom: 20px;
+      border-radius: 10%;
+  
+  }
+  
+  /* Style select dropdown */
+  #dropdown select {
+    padding: 10px; 
+    width: 200px; 
+    border-radius: 10%;
+  }
+  
+  /* Style options within the dropdown */
+  #dropdown select option {
+    padding: 10px; 
+  }
+  
+  /* css styling for index cards */
+  .box {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 60px;
+}
+
+.snapshot-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.snapshot-table td {
+  text-align: center; /* Center align all content in table cells */
+  align-items: center;
+  font-family:  Helvetica, sans-serif
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(190, 230, 244);
+  padding: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+
+.snapshot-table th {
+  font-size: large;
+  text-align: center; /* Center align table header content */
+  padding: 10px;
+}
+
+/* Refers to the titles of each column in the table */
+.snapshot-table td:first-child {
+  font-family: Helvetica, sans-serif;
+  font-size: large;
+  color: rgb(190, 230, 244);
+  width: 100px; /* Adjust as needed */
+}
+
+.snapshot-table a {
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(190, 230, 244);
+}
+
+.snapshot-table a:hover {
+  color: #5ddad6;
+}
+
+  
+  .footer{
+    background-color: #384b67;
+    color: white;
+    font-family:  Arial, sans-serif;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 5px; /* Push the footer to the bottom */
+    margin:auto;
+    width:100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right:0 ;
+  }
+  

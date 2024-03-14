@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Website</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Your file css -->
+  <link rel="stylesheet" type="text/css" href="/signup.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-custom">
+
+    <a class="navbar-brand" href="/views/login.ejs"><img src="/imgs/logo4.png" alt="MindGarden"
+        style="height: fit-content; width: fit-content;"></a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/">
+            <i class="fas fa-clipboard-list"></i></i> Schedule</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/terms">
+            <i class="fas fa-check-square"></i></i> Ts & Cs</a>
+        </li>
+      </ul>
+  
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/login">
+                    <i class="fas fa-sign-in-alt"></i> Login</a>
+            </li>
+             </ul>
+
+
+    </div>
+    </div>
+  </nav>
+
+
+  
+  <div class="container" id="container5">
+      <section class="home">
+          <div class="row align-items-center">
+              <div class="col-md-6">
+                  <div class="description">
+                      <h1 class="title">
+                          Track your Emotions with the <span class="gradient-text"> Mind Garden</span> web app.
+                      </h1>
+                      <p class="paragraph">
+                          Journalling and tracking your emotions could be the next step to unlocking your full potential.<br> Sign
+                          up now and get started with Mind Garden.
+                      </p>
+                  </div>
+              </div>
+              <div class="col-md-6">
+                    <img src="/imgs/logo2.png" width=400" height="300 " alt="Description of the image" >
+                </div>
+            </div>
+
+        <form method="post" action="/signup" class="needs-validation" novalidate>
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username" name="username" required placeholder="Enter a Username">
+            <div class="invalid-feedback">Please enter a username.</div>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" required placeholder=" Please enter an Email Address">
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required placeholder="Enter a Password">
+            <div class="invalid-feedback">Please enter a password.</div>
+          </div>
+          <div class="mb-3">
+            <label for="userType" class="form-label">User Type</label>
+            <select class="form-select" id="userType" name="userType">
+              <option value="2">Free User - $0.00 per month </option>
+              <option value="1">Paid User - $0.99 per month </option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-primary">Sign Up</button>
+        </form>
+      </div>
+  </div>
+  </section>
+
+
+  <footer class="footer">
+    &copy; 2024 MindGarden. All rights reserved.
+  </footer>
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+  <script src="landingpage.js"></script>
+
+</body>
+
+</html>

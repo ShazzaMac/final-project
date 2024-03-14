@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Your file css -->
+    <link rel="stylesheet" type="text/css" href="/index.css">
+    <!-- chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+
+        <a class="navbar-brand" href="/views/login.ejs"><img src="/imgs/logo4.png" alt="MindGarden"
+                style="height: fit-content; width: fit-content;"></a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+
+            <ul class="navbar-nav">
+                <% if (loggedin) { %>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">
+                            <i class="fas fa-clipboard-list"></i>
+                            <%= `${user.name}'s Schedule` %>
+                        </a>
+                    </li>
+                    <% } %>
+            </ul>
+
+
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/terms">
+                        <i class="fas fa-check-square"></i></i> Ts & Cs</a>
+                </li>
+            </ul>
+
+            <% if (loggedin) { %>
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/new">
+                            <i class="fas fa-plus-circle"></i> Add
+                        </a>
+                    </li>
+                    <% } %>
+                </ul>
+
+                <% if (loggedin) { %>
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/overview">
+                                <i class="fas fa-eye"></i> Overview
+                            </a>
+                        </li>
+                        <% } %>
+                    </ul>
+
+                    <% if (loggedin) { %>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">
+                                    <i class="fas fa-chart-line"></i> Dashboard
+                                </a>
+                            </li>
+                            <% } %>
+                        </ul>
+
+                        <% if (!loggedin) { %>
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/login">
+                                        <i class="fas fa-sign-in-alt"></i> Login</a>
+                                </li>
+
+                            </ul>
+
+                            <% } else { %>
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/logout">
+                                            <i class="fas fa-sign-out-alt"></i>Logout</a>
+                                    </li>
+                                </ul>
+                                <% } %>
+        </div>
+        </div>
+    </nav>
+
+
+
+    <% if (loggedin) { %>
+        <h1>Emotional Snapshot Homepage</h1>
+
+   
+
+                    <div class="container" id="container4">
+                                        <h4>Welcome to your Mind Garden Account. </h4>
+                            <br>
+                            <p> On this page you will see all your snapshots appear once created in
+                                the 'Add section'. As your snapshots build up over time you will be
+                                able to look at the overiew section that shows a complete table of
+                                data or you can see trends in the dashboard.To edit a snapshot
+                                just click on the date it was created and you will be able to
+                                update the trigger. If you are a paid user you will also be able to delete entire
+                                snapshots.</p>
+                            <br>
+                            </div>
+                          </section>
+
+                            <div class="container-snapshot">
+                                <% const dateformat={ weekday: 'long' , year: 'numeric' , month: 'long' , day: 'numeric'
+                                    , hour: 'numeric' , minute: 'numeric' , second: 'numeric' }; %>
+                                    <% Snapshot.forEach((row)=> { %>
+                                        <% var snapshotid=row.snapshot_ID; %>
+                                            <% var trigger=row.trigger_type; %>
+                                                <div class="box">
+                                                    <table class="snapshot-table">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>Date:</td>
+                                                                <% var rawdate=new Date(row.snapshot_date); %>
+                                                                    <% var itemdate=new Intl.DateTimeFormat('en-GB',
+                                                                        dateformat).format(rawdate); %>
+                                                                        <td><a href='/edit/<%= row.snapshot_ID %>'
+                                                                                class="date">
+                                                                                <%= itemdate %>
+                                                                            </a></td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Snapshot ID:</td>
+                                                                <td>
+                                                                    <%= row.snapshot_ID %>
+                                                                </td>
+                                                            </tr>
+
+                                                            <tr>
+                                                                <td>Enjoyment:</td>
+                                                                <td>
+                                                                    <%= row.enjoyment %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Surprise:</td>
+                                                                <td>
+                                                                    <%= row.surprise %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Contempt:</td>
+                                                                <td>
+                                                                    <%= row.contempt %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Sadness:</td>
+                                                                <td>
+                                                                    <%= row.sadness %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Fear:</td>
+                                                                <td>
+                                                                    <%= row.fear %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Disgust:</td>
+                                                                <td>
+                                                                    <%= row.disgust %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Anger:</td>
+                                                                <td>
+                                                                    <%= row.anger %>
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>Trigger:</td>
+                                                                <td>
+                                                                    <%= row.trigger_type %>
+                                                                </td>
+
+
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                                <% }); %>
+
+
+                                                    <% } else { %>
+                                                        <!-- Content for non-logged-in users -->
+
+
+                                                        <div class="container" id="container">
+                                                            <section class="home">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-md-12">
+                                                                        <div class="description">
+                                                                            <!-- Different layout or content for non-logged-in users -->
+                                                                            <h4>Thank you for using Mindgarden Today.
+                                                                            </h4>
+                                                                            <p> Keep an eye out for future updates and
+                                                                                new features.</p>
+                                                                                <p> If you are not a user yet, sign up
+                                                                                    today and start tracking your
+                                                                                    emotions.</p>
+                                                                                    <br>
+                                                                                    <p>Click <a href="/login" class="link-nav">HERE</a> to log in
+                                                                                    </p>
+                                                                                    <br>
+                                                                                    <p>Click <a href="/signup" class="link-nav">HERE</a> to
+                                                                                        register</p>
+                                                                                                                                                   </div>
+
+                                                                        <% }; %>
+                                                                    </div>
+                                                                </div>
+                                                        </div>
+                            </div>
+          
+
+
+
+
+
+
+
+
+            <footer class="footer">
+                &copy; 2024 MindGarden. All rights reserved.
+            </footer>
+            <!-- Bootstrap JS and dependencies -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+            <script src="landingpage.js"></script>
+
+</body>
+
+</html>

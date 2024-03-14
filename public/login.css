@@ -1,0 +1,355 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Baskerville&display=swap');
+
+
+/* nav bar styles */
+/* Adjust the appearance of the input group */
+.navbar-custom {
+    /* CSS rules for container 1 (header) */
+    background-color: #384b67; /* Blue background color */
+    color: white; /* Text color */
+    padding: 10px; /* Padding */
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: auto;
+}
+
+.navbar-nav .nav-item {
+  text-align: center;
+}
+
+.navbar-brand img {
+  max-height: 40px; /* Adjust logo height */
+}
+
+.nav-link {
+  border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
+  color: white !important; /* Text color for links */
+}
+
+.navbar-toggler-icon {
+  border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
+  border-color: white; /* Color for the toggler icon */
+}
+
+.navbar-toggler {
+  background-color: #47a09d; /* Background color for active and hover links */
+  border-color: white; /* Color for the toggler button */
+}
+
+.navbar {
+  padding-top: 10px !important; /* Adjust top padding - !important added for higher priority */
+  padding-bottom: 10px !important; /* Adjust bottom padding */
+}
+
+.navbar-brand {
+  width: max-content;
+  height: auto;
+  margin-right: 20px !important; /* Adjust right margin */
+}
+
+.navbar-nav .nav-link {
+  padding-top: 10px !important; /* Adjust top padding */
+  padding-bottom: 10px !important; /* Adjust bottom padding */
+  margin-right: 10px !important; /* Adjust right margin */
+  margin-left: 10px !important; /* Adjust left margin */
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+  border-radius: 20px; /* Adjust the border-radius value to control the roundness of the corners */
+  background-color: #47a09d; /* Background color for active and hover links */
+  color: white; /* Text color for active and hover links */
+  padding: 20px 20px;
+  text-align: center;
+}
+
+.navbar-custom {
+  /* CSS rules for container 1 (header) */
+  background-color: #384b67; /* Blue background color */
+  color: white; /* Text color */
+  padding: 10px; /* Padding */
+  width: 100%;
+  margin-bottom: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000; /* Ensures the header stays on top of other content */
+}
+  
+
+
+/* General Styles */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'DM Serif Display', serif;
+
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'poppins', sans-serif;
+  background-image: url(imgs/image3.jpeg);
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    
+}
+
+.container {
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+
+
+section {
+  position: relative;
+  max-width: 900px;
+  background-color: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(35px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px;
+  flex-direction: column;
+}
+
+
+
+img {
+  width: 100%;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* for the icons - layout */
+.users-color-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 20px;
+}
+
+/* for the icons - animation style */
+.item {
+  max-width: 400px;
+  aspect-ratio: 1/1.1;
+  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5),
+    inset 0px 2px 2px rgba(255, 255, 255, 0.2);
+  animation: fadeIn 1s linear 1 forwards;
+  animation-delay: calc(0.4s * var(--i));
+  opacity: 0;
+}
+
+.item:nth-child(1) {
+  background-color: #e573a7;
+  border-radius: 50% 50% 0 50%;
+}
+
+.item:nth-child(2) {
+  background-color: #ceaf9c;
+  border-radius: 50% 50% 0 0;
+}
+
+.item:nth-child(3) {
+  background-color: #95b1c4;
+  border-radius: 50%;
+}
+
+.item:nth-child(4) {
+  background-color: #95b1c4;
+  border-radius: 0 0 10% 0;
+}
+
+.item:nth-child(5) {
+  background-color: #233797;
+  border-radius: 0 0 0 50%;
+}
+
+.item:nth-child(6) {
+  background-color: #6f4f9e;
+  border-radius: 0 50% 50% 50%;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 0;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* Adjust the appearance of the input group */
+.number-input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+  /*below is all the styles for my typefaces*/
+.description > h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.3rem, 5vw, 4rem);
+  line-height: 1;
+  margin-bottom: 0px;
+}
+
+/* Gradient text */
+.gradient-text {
+  font-family: 'DM Serif Display', serif;
+
+  background-image: linear-gradient(
+    90deg,
+    rgb(6, 42, 56) 10%,
+    rgb(14, 106, 120) 40%,
+    rgb(20, 159, 194) 50%,
+    rgb(14, 73, 73) 70%,
+    rgb(6, 42, 56) 90%
+  );
+  color: transparent; /* for Firefox */
+  background-size: contain; /* for Firefox */
+  background-clip: text; /* for Firefox */
+  -webkit-background-clip: text; /* for Safari */
+}
+
+
+.description > p {
+  font-family: "Garamond", serif;
+  color: #f8f4f4;
+  font-size: 24px;
+  line-height: 26px;
+  margin-top: 20px;
+  margin-bottom: 80px;
+}
+  h1 {
+    font-family: Helvetica, sans-serif;
+    font-weight: 800;
+    text-align: center;
+    color: rgb(247, 248, 248);
+  }
+  h2{
+    font-family: Helvetica, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    color: rgb(208, 239, 239);
+  }
+  
+  h3,
+  h4 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 400;
+    text-align: center;
+    margin: 100;
+    padding: 50;
+    color: rgb(105, 157, 171);
+  }
+  
+  h5 {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 800;
+    text-align: center;
+    color: rgb(105, 157, 171);
+  }
+  
+  p {
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: medium;
+    text-align: center;
+    margin: 100;
+    padding: 5px;
+    color: rgb(105, 157, 171);
+  }
+
+  ul, li {
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+    font-size: medium;
+    text-align: center;
+    margin: 100;
+    padding: 5px;
+    color: rgb(200, 216, 220);
+  }
+
+  .special{
+    font-family:Helvetica;
+    font-weight: 600;
+    text-align: center;
+    margin: 80;
+    padding: 20;
+    color: #384b67;
+  }
+
+  .special2{
+    font-family: Georgia;
+    font-weight: 600;
+    text-align: center;
+    margin: 80;
+    padding: 20;
+    color: #7f94b4;
+  }
+  
+  .date-input{
+    font-family:Helvetica;
+    font-weight: 600;
+     color: #384b67;
+  }
+
+/* log in button */
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+  max-width: max-content;
+  background:  rgb(26, 113, 126);
+}
+
+
+  /* Footer */
+.footer{
+  background-color: #384b67;
+  color: white;
+  font-family:  Arial, sans-serif;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: 5px; /* Push the footer to the bottom */
+  margin:auto;
+  width:100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right:0 ;
+}
+
+
+  
