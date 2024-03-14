@@ -1,9 +1,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Baskerville&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Libre+Baskerville&display=swap');
-/* Adjust the appearance of the input group */
+
 .navbar-custom {
-    /* CSS rules for container 1 (header) */
+   
     background-color: #384b67; /* Blue background color */
     color: white; /* Text color */
     padding: 10px; /* Padding */
@@ -166,7 +166,7 @@ section {
 
   
   #container2 {
-    /* CSS rules for container 2 (ul) */
+  
     background-color: rgba(235, 245, 241, 0.5); /* Background color */
     border-radius: 10px; /* Adjust the border-radius value to control the roundness of the corners */
     display: flex;

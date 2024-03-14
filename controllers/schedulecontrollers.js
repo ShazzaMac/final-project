@@ -278,7 +278,7 @@ exports.getSnapshotOverview = (req, res) => {
             userinfo = { name: username, id: userid };
             console.log(userinfo);
 
-            // Modify the SQL query to join Snapshot with Triggers and select trigger_type
+            // Modified the SQL query to join Snapshot with Triggers and select trigger_type
             const selectSQL = `SELECT s.*, t.trigger_type 
                                                                FROM Snapshot s
                                                                INNER JOIN Triggers t ON s.trigger_ID = t.trigger_ID
@@ -312,7 +312,6 @@ exports.getTerms = (req, res) => {
 
 
 
-// Your other controller functions...
 
 exports.getSignup = (req, res) => {
     res.render('signup');
@@ -407,7 +406,7 @@ exports.getDashboard = (req, res) => {
                         triggerCounts: triggerCounts
                     };
 
-                    // Render your dashboard view with chart data
+                   
                     res.render('dashboard', { chartData: chartData, loggedin: isloggedin});
                 }
             });

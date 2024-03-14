@@ -1,9 +1,9 @@
 // This module is responsible for fetching chart data from the database
 const db = require('./dbconn');
 
-// Define the function to fetch chart data
+
 const getChartData = (callback) => {
-    // Your database query to fetch emotion data
+   
     const emotionQuery = `
     SELECT
         SUM(enjoyment) AS enjoyment_count,
@@ -16,7 +16,7 @@ const getChartData = (callback) => {
     FROM Snapshot;
     `;
 
-    // Your database query to fetch trigger data
+    
     const triggerQuery = `SELECT Triggers.trigger_type AS trigger_type, COUNT(*) AS count   
     FROM Triggers
     JOIN Snapshot ON Triggers.trigger_id = Snapshot.trigger_id

@@ -3,9 +3,9 @@
 
 
 /* nav bar styles */
-/* Adjust the appearance of the input group */
+
 .navbar-custom {
-    /* CSS rules for container 1 (header) */
+ 
     background-color: #384b67; /* Blue background color */
     color: white; /* Text color */
     padding: 10px; /* Padding */
@@ -71,7 +71,7 @@
 }
 
 .navbar-custom {
-  /* CSS rules for container 1 (header) */
+  
   background-color: #384b67; /* Blue background color */
   color: white; /* Text color */
   padding: 10px; /* Padding */
